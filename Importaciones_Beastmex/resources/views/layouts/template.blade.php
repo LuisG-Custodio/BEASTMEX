@@ -9,5 +9,10 @@
 </head>
 <body>
     @yield('contenido')
+    
+    @include('partials.nav')
+
+    
+    @include('partials.footer')
 </body>
 </html>
