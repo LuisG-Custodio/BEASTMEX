@@ -1,14 +1,28 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 <section class="">
     <!-- Footer -->
-    <footer class="text-center text-white" style="background-color: #0a7550;">
+    <footer class="text-center text-white" style="background-color: #0a3775;">
       <!-- Grid container -->
       <div class="container p-4 pb-0">
         <!-- Section: CTA -->
         <section class="">
           <p class="d-flex justify-content-center align-items-center">
             <span class="me-3">Repositorio</span>
-            <button type="button" class="btn btn-outline-light btn-rounded">
-            <button onclick="location.href='https://github.com/LuisG-Custodio/BEASTMEX'"> GitHub - BEASTMEX</button>
+            <button type="button" class="btn btn-outline-light btn-rounded" onclick="location.href='https://github.com/LuisG-Custodio/BEASTMEX'"> GitHub - BEASTMEX</button>
           </p>
         </section>
         <!-- Section: CTA -->

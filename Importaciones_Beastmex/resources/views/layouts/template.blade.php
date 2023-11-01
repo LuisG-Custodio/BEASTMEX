@@ -12,7 +12,8 @@
     
     @include('partials.nav')
 
+    <h1 class="display-1 text-center text-info mt-4">@yield('titulo')</h1>
     
-    @include('partials.footer')
 </body>
+@include('partials.footer')
 </html>
