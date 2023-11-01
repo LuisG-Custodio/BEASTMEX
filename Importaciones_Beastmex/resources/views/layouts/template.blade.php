@@ -9,5 +9,11 @@
 </head>
 <body>
     @yield('contenido')
+    
+    @include('partials.nav')
+
+    <h1 class="display-1 text-center text-info mt-4">@yield('titulo')</h1>
+    
 </body>
+@include('partials.footer')
 </html>
