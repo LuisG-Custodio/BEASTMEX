@@ -10,7 +10,7 @@
       }
   </style>
 </head>
-<body style="background-color: #517272;">
+<body style="background-color: #1977772c">
   <br>
   <br>
   <br>
@@ -46,3 +46,4 @@
     </div>
 </body>
 </html>
+

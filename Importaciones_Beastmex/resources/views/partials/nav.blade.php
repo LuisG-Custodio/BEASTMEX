@@ -1,4 +1,4 @@
-<nav class="navbar bg-primary" data-bs-theme="dark">
+<nav class="navbar" style="background-color: #03363d; height: 60px;" data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">BEASTMEX</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,3 +19,4 @@
         </div>
       </div>
   </nav>
+  
