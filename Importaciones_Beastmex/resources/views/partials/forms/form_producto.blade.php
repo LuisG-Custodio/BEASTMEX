@@ -25,7 +25,7 @@
     <div class="row g-3">
         <div class="col-md-6">
             <label for="inputFoto" class="form-label">Foto del Producto</label>
-            <input type="file" class="form-control" id="inputFoto" name="productImage" accept="image/*" required>
+            <input type="file" class="form-control" id="inputFoto" name="_Image" accept="image/*" required>
         </div>
     </div>
 
