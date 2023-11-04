@@ -5,7 +5,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="background-color: #03363d; width: 120px;">
             <li class="nav-item">
               <a class="nav-link {{ request()->routeIs('/* apodoInicio */')?'text-success-emphasis':'' }}" aria-current="page" href="/Inicio">Departamentos</a>
             </li>
