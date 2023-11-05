@@ -9,7 +9,7 @@
     @vite(['resources/js/app.js'])
     <title>@yield('titulo')</title>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     
     @include('partials.alerta')
     @include('partials.nav')
@@ -17,5 +17,7 @@
     <h1 class="display-1 text-center text-info mt-4">@yield('titulo')</h1>
     @yield('contenido')
 </body>
+<footer class="mt-auto">
 @include('partials.footer')
+</footer>
 </html>

@@ -58,13 +58,13 @@
                     </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://th.bing.com/th/id/R.22bbaff748a948d7d2a60e8f0693cf7f?rik=Gs690eN639DZ3A&riu=http%3a%2f%2fwww.freejpg.com.ar%2fasset%2f900%2f63%2f6367%2fF100008603.jpg&ehk=%2fElh4LiV49QOPcmLvMqOIELomMxYcCmeigE8o9y92XU%3d&risl=&pid=ImgRaw&r=0" class="d-block w-100">
+                            <img src="https://c.pxhere.com/photos/64/95/computer_cpu_data_fan_intel_it_motherboard_pc-923864.jpg!d" class="d-block w-100">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://th.bing.com/th/id/R.22bbaff748a948d7d2a60e8f0693cf7f?rik=Gs690eN639DZ3A&riu=http%3a%2f%2fwww.freejpg.com.ar%2fasset%2f900%2f63%2f6367%2fF100008603.jpg&ehk=%2fElh4LiV49QOPcmLvMqOIELomMxYcCmeigE8o9y92XU%3d&risl=&pid=ImgRaw&r=0" class="d-block w-100" alt="...">
+                            <img src="https://c.pxhere.com/photos/64/95/computer_cpu_data_fan_intel_it_motherboard_pc-923864.jpg!d" class="d-block w-100" alt="...">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://th.bing.com/th/id/R.22bbaff748a948d7d2a60e8f0693cf7f?rik=Gs690eN639DZ3A&riu=http%3a%2f%2fwww.freejpg.com.ar%2fasset%2f900%2f63%2f6367%2fF100008603.jpg&ehk=%2fElh4LiV49QOPcmLvMqOIELomMxYcCmeigE8o9y92XU%3d&risl=&pid=ImgRaw&r=0" class="d-block w-100" alt="...">
+                            <img src="https://c.pxhere.com/photos/64/95/computer_cpu_data_fan_intel_it_motherboard_pc-923864.jpg!d" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

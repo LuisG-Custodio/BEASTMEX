@@ -1,18 +1,3 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 <section class="">
     <!-- Footer -->
     <footer class="text-center text-white" style="background-color: #0a3775;">
