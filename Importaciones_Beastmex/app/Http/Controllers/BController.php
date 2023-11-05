@@ -36,11 +36,7 @@ class BController extends Controller
     public function m_b_producto(){
         return view('busqueda_producto');
     }
-
-    public function m_b_producto(){
-        return view('busqueda_producto');
-    }
-
+    
     public function m_r_compras(){
         return view('busqueda_compras');
     }
