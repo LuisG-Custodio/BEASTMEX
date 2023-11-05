@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('titulo','Reporte Compras')
+@section('titulo','Reporte General')
 @section('contenido')
 
 <style>
@@ -30,35 +30,11 @@
         </div>
         <div class="col-md-12">
             <div id="chart-container" class="mt-3">
-                @include('partials.grafica')
+                @include('partials.graficaGral')
             </div>
         </div>
     </div>
 </div>
-<div class="container mt-5">
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th scope="col"></th>
-                <th scope="col">Producto</th>
-                <th scope="col">Precio Venta/Compra</th>
-                <th scope="col">Cantidad</th>
-                <th scope="col">Stock</th>
-                <th scope="col">Total</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row" class="text-center">1</th>
-                <td>--</td>
-                <td>--</td>
-                <td>-</td>
-                <td>--</td>
-                <td>--</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
 
 @endsection
