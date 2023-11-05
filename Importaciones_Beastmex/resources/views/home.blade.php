@@ -17,16 +17,16 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-md-3">
-                <a href="/ventas" class="btn btn-primary btn-lg btn-block">VENTAS</a>
+                <a href="/clientes" class="btn btn-primary btn-lg btn-block">VENTAS</a>
             </div>
             <div class="col-md-3">
-                <a href="/" class="btn btn-success btn-lg btn-block">ALMACÉN</a>
+                <a href="/productos" class="btn btn-success btn-lg btn-block">ALMACÉN</a>
             </div>
             <div class="col-md-3">
-                <a href="/repore_general" class="btn btn-info btn-lg btn-block">COMPRAS</a>
+                <a href="/proveedores" class="btn btn-info btn-lg btn-block">COMPRAS</a>
             </div>
             <div class="col-md-3">
-                <a href="/" class="btn btn-warning btn-lg btn-block">GERENCIA</a>
+                <a href="/empleados" class="btn btn-warning btn-lg btn-block">GERENCIA</a>
             </div>
         </div>
         

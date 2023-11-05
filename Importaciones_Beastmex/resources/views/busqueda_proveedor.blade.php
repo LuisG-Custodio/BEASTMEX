@@ -27,7 +27,36 @@ body {
                 <th scope="col"></th>
                 <th scope="col">Proveedor</th>
                 <th scope="col">RFC</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Giro</th>
+                <th scope="col">Notas</th>
                 <th scope="col">...</th>
+
+            </tr>
+            <tr>
+                <td scope="col">
+                    <table>
+                        <tr>
+                            <td>
+                                <button class="btn btn-outline-info btn-sm"><i class="bi bi-pencil-square"></i></button>
+                            </td>
+                            <td>
+                                <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i></button>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td scope="col">Proveedor1</th>
+                <td scope="col">XAXX010101000</th>
+                <td scope="col">4425698756</th>
+                <td scope="col">proveedor@email.com</th>
+                <td scope="col">Calle #X Col. Colonia C.P. 00000 Estado, País</th>
+                <td scope="col">Giro</th>
+                <td scope="col">Notas</th>
+                    <td scope="col"><a href="{{route('f_orden_compra')}}"><button class="btn btn-outline-primary">Nueva Orden</button></th></a>
 
             </tr>
         </thead>
@@ -39,7 +68,7 @@ body {
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <button type="button" class="btn btn-outline-success">Nuevo</button>
+            <a href="{{route('f_proveedor')}}"><button type="button" class="btn btn-outline-success">Nuevo</button></a>
         </div>
     </div>
 </div>

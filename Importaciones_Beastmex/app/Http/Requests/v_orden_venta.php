@@ -22,11 +22,11 @@ class v_orden_venta extends FormRequest
     public function rules(): array
     {
         return [
-            '_Cliente'=>'required';
-            '_FechaEntrega'=>'required';
-            '_Producto'=>'required';
-            '_Cantidad'=>'required';
-            '_Notas'=>'required';
+            '_Cliente'=>'required|max:250',
+            '_FechaEntrega'=>'required',
+            '_Producto'=>'required|max:250',
+            '_Cantidad'=>'required|numeric',
+            '_Notas'=>'max:250',
         ];
     }
 }

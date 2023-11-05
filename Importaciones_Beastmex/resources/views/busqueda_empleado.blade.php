@@ -26,11 +26,38 @@
                 <tr>
                     <th scope="col"></th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Puesto</th>
+                    <th scope="col">RFC</th>
+                    <th scope="col">Teléfono</th>
                     <th scope="col">Correo</th>
+                    <th scope="col">Puesto</th>
                     <th scope="col">Contraseña</th>
+                    <th scope="col">Dirección</th>
                     <th scope="col">...</th>
-    
+                </tr>
+                <tr>
+                    <td scope="col">
+                        <table>
+                            <tr>
+                                <td>
+                                    <button class="btn btn-outline-info btn-sm"><i class="bi bi-pencil-square"></i></button>
+                                </td>
+                                <td>
+                                    <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i></button>
+                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td scope="col">Empleado1</td>
+                    <td scope="col">XAXX010101000</td>
+                    <td scope="col">4425698756</td>
+                    <td scope="col">empleado@email.com</td>
+                    <td scope="col">Gerente</td>
+                    <td scope="col">
+                        <button class="btn btn-outline-warning btn-sm">Cambiar</button>
+                    </td>
+                    <td scope="col">Calle #X Col. Colonia C.P. 00000 Estado, País</td>
+                    <td scope="col">...</td>
                 </tr>
             </thead>
             
@@ -41,7 +68,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <button type="button" class="btn btn-outline-success">Nuevo</button>
+                <a href="{{route('f_empleado')}}"><button type="button" class="btn btn-outline-success">Nuevo</button></a>
             </div>
         </div>
     </div>

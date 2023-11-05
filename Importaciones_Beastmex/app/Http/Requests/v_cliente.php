@@ -22,12 +22,12 @@ class v_cliente extends FormRequest
     public function rules(): array
     {
         return [
-            '_NombreEmpresa'=>'required';
-            '_RFC'=>'required';
-            '_Telefono'=>'required';
-            '_Correo'=>'required';
-            '_Direccion'=>'required';
-            '_Notas'=>'required';
+            '_NombreEmpresa'=>'required|max:250',
+            '_RFC'=>'required|between:12,13',
+            '_Telefono'=>'required|numeric|digits:10',
+            '_Correo'=>'required|email:rfc,dns',
+            '_Direccion'=>'required|max:250',
+            '_Notas'=>'max:250'
         ];
     }
 }

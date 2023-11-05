@@ -22,12 +22,12 @@ class v_producto extends FormRequest
     public function rules(): array
     {
         return [
-            '_NombreProducto'=>'required';
-            '_NumeroSerie'=>'required';
-            '_Marca'=>'required';
-            '_NombreProveedor'=>'required';
-            '_Image'=>'required';
-            '_Notas'=>'required';
+            '_NombreProducto'=>'required|max:250',
+            '_NumeroSerie'=>'required|numeric|max:20',
+            '_Marca'=>'required|max:250',
+            '_NombreProveedor'=>'required|max:250',
+            '_Image'=>'required',
+            '_Notas'=>'max:250',
         ];
     }
 }

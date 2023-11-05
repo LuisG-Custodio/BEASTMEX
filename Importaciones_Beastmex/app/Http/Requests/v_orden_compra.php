@@ -22,10 +22,11 @@ class v_orden_compra extends FormRequest
     public function rules(): array
     {
         return [
-            '_Producto'=>'required';
-            '_Cantidad'=>'required';
-            '_CostoCompra'=>'required';
-            '_Notas'=>'required';
+            '_Proveedor'=>'required|max:250',
+            '_Producto'=>'required|max:250',
+            '_Cantidad'=>'required|numeric',
+            '_FechaEntrega'=>'required',
+            '_Notas'=>'max:250',
         ];
     }
 }
