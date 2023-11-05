@@ -8,11 +8,15 @@
     <title>@yield('titulo')</title>
 </head>
 <body>
+    @include('partials.nav')
+    
+    <h1 class="display-1 text-center text-black mt-4">@yield('titulo')</h1>
+
     @yield('contenido')
     
-    @include('partials.nav')
+  
 
-    <h1 class="display-1 text-center text-info mt-4">@yield('titulo')</h1>
+    
     
 </body>
 @include('partials.footer')
