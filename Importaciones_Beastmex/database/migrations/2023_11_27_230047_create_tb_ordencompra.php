@@ -12,8 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_ordencompra', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->unsignedBigInteger('id_ticket');
+            $table->unsignedBigInteger('id_producto');
+            $table->string('Cantidad');
+            $table->string('Subtotal');
+            $table->string('Estatus');
             $table->timestamps();
+
+            $table->foreign('id_ticket')->references('id')->on('tb_ticketventa');
+            $table->foreign('id_producto')->references('id')->on('tb_productos');
+
         });
     }
 

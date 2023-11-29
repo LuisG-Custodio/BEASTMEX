@@ -12,8 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_proveedores', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('RFC');
+            $table->unsignedBigInteger('id_persona');
             $table->timestamps();
+
+            $table->foreign('id_persona')->references('id')->on('tb_personas');
         });
     }
 

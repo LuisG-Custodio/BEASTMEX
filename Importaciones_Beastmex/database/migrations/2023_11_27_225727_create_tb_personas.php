@@ -12,7 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_personas', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('Nombre');
+            $table->string('AP');
+            $table->string('AM');
+            $table->string('Telefono');
+            $table->string('Correo');
+            $table->string('Direccion');
+            $table->string('Estatus');
             $table->timestamps();
         });
     }
