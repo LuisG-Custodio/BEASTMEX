@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BController;
+use App\Http\Controllers\BeastmexController;
+
+Route::resource('home',BeastmexController::class);
+
 
 Route::get('/login',[BController::class,'m_login'])->name('n_login');
 Route::get('/',[BController::class,'m_home'])->name('n_home');

@@ -10,6 +10,7 @@ body {
 
 </style>
 <body>
+
     <nav class="navbar">
         <div class="container">
             <div class="search-form">
@@ -40,23 +41,40 @@ body {
                         <tr>
                             <td>
                                 <button class="btn btn-outline-info btn-sm"><i class="bi bi-pencil-square"></i></button>
+                                 <!-- Botón con Modal -->
+                                <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#editar">
+                                    Editar
+                                </button>
                             </td>
                             <td>
                                 <button class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i></button>
-                                
+                                 <!-- Botón con Modal -->
+                                <!-- Botón con Modal -->
+                                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#borrar">
+                                    Borrar
+                                </button>
                             </td>
                         </tr>
                     </table>
                 </td>
-                <td scope="col">Cliente1</th>
-                <td scope="col">XAXX010101000</th>
-                <td scope="col">4425698756</th>
-                <td scope="col">cliente@email.com</th>
-                <td scope="col">Calle #X Col. Colonia C.P. 00000 Estado, País</th>
-                <td scope="col">Notas</th>
-                <td scope="col"><a href="{{route('f_orden_venta')}}"><button class="btn btn-outline-primary">Nueva Orden</button></th></a>
-
-            </tr>
+                <tr>
+                    
+            @foreach ($allclientes as $item)
+                
+                <td scope="col">{{$item->cliente}}</th>
+                <td scope="col">{{$item->rfc}}</th>
+                <td scope="col">{{$item->telefono}}</th>
+                <td scope="col">{{$item->correo}}</th>
+                <td scope="col">{{$item->direccion}}</th>
+                <td scope="col">{{$item->notas}}</th>
+                <td scope="col"><!-- Botón con Modal -->
+                    <a href="{{route('f_orden_venta')}}"><button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#nuevaOrden">
+                        Nueva Orden
+                    </button></th></a>
+                @include('partials.modal')
+            @endforeach 
+        
+            
         </thead>
         
     </table>
@@ -66,7 +84,10 @@ body {
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <a href="{{route('f_cliente')}}"><button type="button" class="btn btn-outline-success">Nuevo</button></a>
+            <!-- Botón con Modal -->
+            <a href="{{route('f_cliente')}}"><button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#nuevoCliente">
+                Nuevo
+            </button></a>
         </div>
     </div>
 </div>
