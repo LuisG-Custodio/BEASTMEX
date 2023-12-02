@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Carbon\Carbon;
 
 return new class extends Migration
 {
@@ -19,9 +20,21 @@ return new class extends Migration
             $table->string('Telefono');
             $table->string('Correo');
             $table->string('Direccion');
-            $table->string('Estatus');
+            $table->string('Estatus')->default('1');
             $table->timestamps();
         });
+        DB::table('tb_personas')->insert([
+            [
+                'Nombre'=>'Luis Guillermo',
+                'AP'=>'Custodio',
+                'AM'=>'Serrano',
+                'Telefono'=>'5535766539',
+                'Correo'=>'121039302@upq.edu.mx',
+                'Direccion'=>'Palacio de Gobierno 226',
+                'created_at'=>Carbon::now(),
+                'updated_at'=>Carbon::now(),
+            ],
+        ]);
     }
 
     /**

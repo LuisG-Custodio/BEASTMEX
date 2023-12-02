@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tb_ordencompra', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('id_ticket');
-            $table->unsignedBigInteger('id_producto');
+            $table->integer('id_ticket')->unsigned();
+            $table->integer('id_producto')->unsigned();
             $table->string('Cantidad');
             $table->string('Subtotal');
             $table->string('Estatus');

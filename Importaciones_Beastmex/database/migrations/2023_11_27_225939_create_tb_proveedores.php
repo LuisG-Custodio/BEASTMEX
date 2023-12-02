@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tb_proveedores', function (Blueprint $table) {
             $table->increments('id');
             $table->string('RFC');
-            $table->unsignedBigInteger('id_persona');
+            $table->integer('id_persona')->unsigned();
             $table->timestamps();
 
             $table->foreign('id_persona')->references('id')->on('tb_personas');
