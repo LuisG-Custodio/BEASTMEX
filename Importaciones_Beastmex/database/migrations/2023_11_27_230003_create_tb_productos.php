@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tb_productos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('Nombre');
-            $table->string('No.Serie');
+            $table->string('No_Serie');
             $table->string('Marca');
             $table->string('Costo_compra');
             $table->string('Stock');
@@ -22,13 +22,10 @@ return new class extends Migration
             $table->string('Fecha_ingreso');
             $table->string('Foto');
             $table->string('Estatus');
-            $table->unsignedBigInteger('id_proveedor');
+            $table->integer('id_proveedor')->unsigned();
             $table->timestamps();
 
             $table->foreign('id_proveedor')->references('id')->on('tb_proveedores');
-
-
-
         });
     }
 

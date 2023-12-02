@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Carbon\Carbon;
 return new class extends Migration
 {
     /**
@@ -16,6 +16,14 @@ return new class extends Migration
             $table->string('Nombre');
             $table->timestamps();
         });
+
+        DB::table('tb_roles')->insert([
+            ['Nombre' => 'Administrador', 'created_at'=>Carbon::now(),'updated_at'=>Carbon::now(),],
+            ['Nombre' => 'Gerente', 'created_at'=>Carbon::now(),'updated_at'=>Carbon::now(),],
+            ['Nombre' => 'Compras', 'created_at'=>Carbon::now(),'updated_at'=>Carbon::now(),],
+            ['Nombre' => 'Ventas', 'created_at'=>Carbon::now(),'updated_at'=>Carbon::now(),],
+            ['Nombre' => 'Almacen', 'created_at'=>Carbon::now(),'updated_at'=>Carbon::now(),],
+        ]);
     }
 
     /**

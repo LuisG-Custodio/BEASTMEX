@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tb_ticketcompra', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('id_empleado');
-            $table->unsignedBigInteger('id_proveedor');
+            $table->integer('id_empleado')->unsigned();
+            $table->integer('id_proveedor')->unsigned();
             $table->string('Total');
             $table->string('Estatus');
             $table->timestamps();
