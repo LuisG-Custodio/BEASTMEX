@@ -51,10 +51,10 @@ body {
                     <table>
                         <tr>
                             <td>
-                                <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#editarProducto{{$i->id_proveedor}}"><i class="bi bi-pencil-square"></i></button>
+                                <button class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#editarProducto{{$i->id_producto}}"><i class="bi bi-pencil-square"></i></button>
                             </td>
                             <td>
-                                <button class="btn btn-outline-danger btn-sm"  data-bs-toggle="modal" data-bs-target="#eliminarProducto{{$i->id_proveedor}}"><i class="bi bi-trash"></i></button>
+                                <button class="btn btn-outline-danger btn-sm"  data-bs-toggle="modal" data-bs-target="#eliminarProducto{{$i->id_producto}}"><i class="bi bi-trash"></i></button>
                                 
                             </td>
                         </tr>
@@ -67,7 +67,7 @@ body {
                 <td scope="col">{{number_format($i->Costo_compra * 1.55, 2) }}</td>
                 <td scope="col">{{$i->Stock}}</td>
                 <td scope="col">{{$i->pNombre}} {{$i->AP}} {{$i->AM}}</td>
-                <td scope="col"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png" class="img-thumbnail rounded float-start" style="max-height: 50px;"></td>
+                <td scope="col"><img src="{{Storage::url($i->Foto)}}" class="img-thumbnail rounded float-start" style="max-height: 100px;"></td>
             </tr>
              @include('partials.modalproductos')
             @endforeach

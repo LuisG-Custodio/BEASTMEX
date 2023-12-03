@@ -24,10 +24,13 @@ body {
                   </div>
               </nav>
             </div>
-            <div class="col-4">
+            <div class="col-2">
               @include('partials.formulario_proveedor')
               <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#nuevoProveedor">Nuevos</button>
             </div>
+            <div class="col-2">
+                <a href="/proveedores/tickets"><button type="button" class="btn btn-outline-primary">Ver tickets</button></a>
+              </div>
           </div>
     <table class="table table-striped table-bordered">
         <thead>
@@ -65,7 +68,12 @@ body {
                 <td scope="col">{{$p->Correo}}</th>
                 <td scope="col">{{$p->Direccion}}</th>
                 <td scope="col">{{$p->Giro}}</th>
-                    <td scope="col"><a href="{{route('f_orden_compra')}}"><button class="btn btn-outline-primary">Nueva Orden</button></th></a>
+                <td scope="col">
+                    <form method="POST" action="/proveedores/{{$p->id_proveedor}}/ticket">
+                        @csrf
+                    <button type="submit"  class="btn btn-outline-primary">Nueva Orden</button>
+                    </form>
+                </td>
 
             </tr>
             @include('partials.modalproveedores')

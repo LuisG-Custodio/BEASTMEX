@@ -8,30 +8,24 @@
     }
 </style>
 <div class="container mt-5">
-    <form action="/guardar_orden_compra" method="POST">
+    <form action="/guardar_orden_compra/{{$id}}" method="POST">
         @csrf
         <div class="row g-3">
             <div class="col-md-6">
-                <label for="inputCliente" class="form-label">Proveedor</label>
-                <input type="text" class="form-control" id="inputCliente" name="_Proveedor" value="Proveedor1" >
-                @if($errors->first('_Proveedor'))
-                    <div class="alert alert-danger" role="alert">
-                        {{ $errors->first('_Proveedor') }}
-                    </div>
-                @endif
-            </div>
-            <div class="col-md-6">
                 <label for="inputProducto" class="form-label">Producto a Comprar</label>
-                <input type="text" class="form-control" id="inputProducto" name="_Producto" value="{{ old('_Producto') }}">
+                <br>
+                <select name="_Producto" id="inputStock">
+                    <option value="" @if (null == old('_Producto')) selected @endif>Selecciona una opción</option>
+                    @foreach($productos as $i)
+                    <option value="{{$i->id_producto}}" @if ($i->id_producto == old('_Producto')) selected @endif>{{$i->Nombre}}</option>
+                    @endforeach
+                </select>
                 @if($errors->first('_Producto'))
                     <div class="alert alert-danger" role="alert">
                         {{ $errors->first('_Producto') }}
                     </div>
                 @endif
             </div>
-        </div>
-
-        <div class="row g-3">
             <div class="col-md-6">
                 <label for="inputCantidad" class="form-label">Cantidad a Comprar</label>
                 <input type="number" class="form-control" id="inputCantidad" name="_Cantidad" value="{{ old('_Cantidad') }}">
@@ -41,29 +35,9 @@
                     </div>
                 @endif
             </div>
-            <div class="col-md-6">
-                <label for="inputFechaEntrega" class="form-label">Fecha de Entrega Deseada</label>
-                <input type="date" class="form-control" id="inputFechaEntrega" name="_FechaEntrega" value="{{ old('_FechaEntrega') }}">
-                @if($errors->first('_FechaEntrega'))
-                    <div class="alert alert-danger" role="alert">
-                        {{ $errors->first('_FechaEntrega') }}
-                    </div>
-                @endif
-            </div>
         </div>
 
-        <div class="row g-3">
-            <div class="col-md-12">
-                <label for="inputNotas" class="form-label">Notas Adicionales</label>
-                <textarea class="form-control" wrap="hard" id="inputNotas" rows="3" name="_Notas">{{ old('_Notas') }}</textarea>
-                @if($errors->first('_Notas'))
-                    <div class="alert alert-danger" role="alert">
-                        {{ $errors->first('_Notas') }}
-                    </div>
-                @endif
-            </div>
-           
-        </div>
+
 
 
         <div class="row row-cols-auto">
@@ -71,10 +45,124 @@
                 <button type="submit" class="btn btn-outline-success mt-3">Registrar</button>
             </div>
             <div class="col">
-                <a href="/proveedores"><button type="button" class="btn btn-outline-danger mt-3">Cancelar</button></a>
+                <a href="/proveedores"><button type="button" class="btn btn-outline-danger mt-3">Salir</button></a>
             </div>
         </div>
     </form>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>Proveedor</th>
+                <th>Solicitante</th>
+                <th>Fecha de ticket</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{$proveedor[0]->Nombre}} {{$proveedor[0]->AP}} {{$proveedor[0]->AM}}</td>
+                <td>{{$empleado[0]->Nombre}} {{$empleado[0]->AP}} {{$empleado[0]->AM}}</td>
+                <td>{{$fechaticket[0]->created_at}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($poductos_ordenados as $po)
+            <tr>
+                <td>{{$po->Nombre}}</td>
+                <td>{{$po->Costo_compra}}</td>
+                <td>{{$po->Cantidad}}</td>
+                <td>{{$po->Costo_compra*$po->Cantidad}}</td>
+                <td>
+                    <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminarOrden{{$po->id_ordencompra}}"><i class="bi bi-trash"></i></button>
+                </td>
+            </tr>
+            @include('partials.modalordencompras')
+            @endforeach
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Total:</td>
+                <td>{{$total}}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="download-button">Descargar PDF</button>
+        <div hidden>
+            <div id="invoice">
+                <div class="container">
+                    <table class="table mt-3">
+                        <thead>
+                            <tr>
+                                <th>Proveedor</th>
+                                <th>Solicitante</th>
+                                <th>Fecha de ticket</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{$proveedor[0]->Nombre}} {{$proveedor[0]->AP}} {{$proveedor[0]->AM}}</td>
+                                <td>{{$empleado[0]->Nombre}} {{$empleado[0]->AP}} {{$empleado[0]->AM}}</td>
+                                <td>{{$fechaticket[0]->created_at}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table mt-3">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($poductos_ordenados as $po)
+                            <tr>   
+                                <td></td>
+                                <td>{{$po->Nombre}}</td>
+                                <td>{{$po->Costo_compra}}</td>
+                                <td>{{$po->Cantidad}}</td>
+                                <td>{{$po->Costo_compra*$po->Cantidad}}</td>
+                            </tr>
+                            @include('partials.modalordencompras')
+                            @endforeach
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Total:</td>
+                                <td>{{$total}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 </div>
+
+<script>
+    const button = document.getElementById('download-button');
+
+    function generatePDF() {
+        // Choose the element that your content will be rendered to.
+        const element = document.getElementById('invoice');
+        // Choose the element and save the PDF for your user.
+        html2pdf().from(element).save();
+    }
+
+    button.addEventListener('click', generatePDF);
+</script>
 
 @endsection

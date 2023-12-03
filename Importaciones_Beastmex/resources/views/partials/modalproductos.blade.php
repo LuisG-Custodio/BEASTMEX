@@ -81,7 +81,12 @@
 
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label for="inputFoto" class="form-label">Foto del Producto</label>
+                            <label for="Foto" class="form-label">Foto del Producto</label>
+                            <br>
+                            <img src="{{Storage::url($i->Foto)}}" id="Foto" class="img-thumbnail rounded float-start" style="max-height: 100px;">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputFoto" class="form-label">Cambiar Foto</label>
                             <input type="file" class="form-control" id="inputFoto" name="_Image" accept="image/*">
                             @if($errors->first('_Image'))
                                 <div class="alert alert-danger" role="alert">
@@ -89,7 +94,6 @@
                                 </div>
                             @endif
                         </div>
-                        
                     </div>
 
             </div>
