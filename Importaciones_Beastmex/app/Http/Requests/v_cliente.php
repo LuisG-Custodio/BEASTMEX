@@ -23,11 +23,12 @@ class v_cliente extends FormRequest
     {
         return [
             '_NombreEmpresa'=>'required|max:250',
+            '_AP'=>'max:250',
+            '_AM'=>'max:250',
             '_RFC'=>'required|between:12,13',
             '_Telefono'=>'required|numeric|digits:10',
             '_Correo'=>'required|email:rfc,dns',
             '_Direccion'=>'required|max:250',
-            '_Notas'=>'max:250'
         ];
     }
 }

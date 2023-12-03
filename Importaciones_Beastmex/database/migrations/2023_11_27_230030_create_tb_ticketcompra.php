@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_ticketcompra', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_ticketcompra');
             $table->integer('id_empleado')->unsigned();
             $table->integer('id_proveedor')->unsigned();
             $table->string('Total');
             $table->string('Estatus');
             $table->timestamps();
 
-            $table->foreign('id_empleado')->references('id')->on('tb_empleados');
-            $table->foreign('id_proveedor')->references('id')->on('tb_proveedores');
+            $table->foreign('id_empleado')->references('id_empleado')->on('tb_empleados');
+            $table->foreign('id_proveedor')->references('id_proveedor')->on('tb_proveedores');
 
         });
     }

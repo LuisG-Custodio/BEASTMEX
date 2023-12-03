@@ -12,20 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_productos', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_producto');
             $table->string('Nombre');
             $table->string('No_Serie');
             $table->string('Marca');
-            $table->string('Costo_compra');
-            $table->string('Stock');
-            $table->string('Precio_Venta');
-            $table->string('Fecha_ingreso');
-            $table->string('Foto');
-            $table->string('Estatus');
+            $table->float('Costo_compra');
+            $table->integer('Stock');
+            $table->string('Foto')->nullable();
+            $table->string('Estatus')->default('1');
             $table->integer('id_proveedor')->unsigned();
             $table->timestamps();
 
-            $table->foreign('id_proveedor')->references('id')->on('tb_proveedores');
+            $table->foreign('id_proveedor')->references('id_proveedor')->on('tb_proveedores');
         });
     }
 

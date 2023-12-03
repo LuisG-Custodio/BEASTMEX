@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_clientes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_cliente');
             $table->string('RFC');
             $table->integer('id_persona')->unsigned();
             $table->timestamps();
 
-            $table->foreign('id_persona')->references('id')->on('tb_personas');
+            $table->foreign('id_persona')->references('id_persona')->on('tb_personas');
         });
     }
 

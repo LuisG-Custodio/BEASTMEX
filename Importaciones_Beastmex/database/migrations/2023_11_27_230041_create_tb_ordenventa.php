@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_ordenventa', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_ordenventa');
             $table->integer('id_ticket')->unsigned();
             $table->integer('id_producto')->unsigned();
             $table->string('Cantidad');
@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('Estatus');
             $table->timestamps();
 
-            $table->foreign('id_ticket')->references('id')->on('tb_ticketventa');
-            $table->foreign('id_producto')->references('id')->on('tb_productos');
+            $table->foreign('id_ticket')->references('id_ticketventa')->on('tb_ticketventa');
+            $table->foreign('id_producto')->references('id_producto')->on('tb_productos');
 
         });
     }

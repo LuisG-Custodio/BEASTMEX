@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\beastmex;
 use Illuminate\Http\Request;
-use DB;
 
 class BeastmexController extends Controller
 {
@@ -13,7 +12,7 @@ class BeastmexController extends Controller
      */
     public function index()
     {
-        $allclientes=DB::table('beastmexes')->all();
+        $allclientes=beastmexes::all();
         return view('busqueda_cliente', compact('allclientes'));
     }
     
