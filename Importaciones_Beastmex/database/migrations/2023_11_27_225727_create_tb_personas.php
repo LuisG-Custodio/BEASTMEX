@@ -13,10 +13,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_personas', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_persona');
             $table->string('Nombre');
-            $table->string('AP');
-            $table->string('AM');
+            $table->string('AP')->nullable();
+            $table->string('AM')->nullable();
             $table->string('Telefono');
             $table->string('Correo');
             $table->string('Direccion');

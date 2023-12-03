@@ -13,19 +13,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_empleados', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('Puesto');
+            $table->increments('id_empleado');
+            $table->string('RFC');
             $table->integer('id_persona')->unsigned();
             $table->integer('id_rol')->unsigned();
             $table->string('Contraseña');
             $table->timestamps();
 
-            $table->foreign('id_persona')->references('id')->on('tb_personas');
-            $table->foreign('id_rol')->references('id')->on('tb_roles');
+            $table->foreign('id_persona')->references('id_persona')->on('tb_personas');
+            $table->foreign('id_rol')->references('id_rol')->on('tb_roles');
         });
         DB::table('tb_empleados')->insert([
             [
-                'Puesto'=>'Administrador',
+                'RFC'=>'1234567890123',
                 'id_persona'=>1,
                 'id_rol'=>1,
                 'Contraseña'=>'123456789',

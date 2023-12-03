@@ -23,13 +23,14 @@ class v_empleado extends FormRequest
     {
         return [
             '_NombreEmpleado'=>'required|max:250',
+            '_AP'=>'required|max:250',
+            '_AM'=>'max:250',
             '_RFC'=>'required|between:12,13',
             '_Telefono'=>'required|numeric|digits:10',
             '_Correo'=>'required|email:rfc,dns',
             '_Puesto'=>'required',
             '_Contrasena'=>'required|min:8',
-            '_Direccion'=>'required|max:250',
-            '_Notas'=>'max:250'
+            '_Direccion'=>'required|max:250'
         ];
     }
 }

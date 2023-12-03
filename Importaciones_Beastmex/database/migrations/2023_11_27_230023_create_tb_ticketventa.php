@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tb_ticketventa', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id_ticketventa');
             $table->integer('id_empleado')->unsigned();
             $table->integer('id_cliente')->unsigned();
             $table->string('Estatus');
             $table->timestamps();
 
-            $table->foreign('id_empleado')->references('id')->on('tb_empleados');
-            $table->foreign('id_cliente')->references('id')->on('tb_Clientes');
+            $table->foreign('id_empleado')->references('id_empleado')->on('tb_empleados');
+            $table->foreign('id_cliente')->references('id_cliente')->on('tb_Clientes');
 
 
         });
