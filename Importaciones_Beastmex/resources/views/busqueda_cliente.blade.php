@@ -23,10 +23,13 @@ body {
               </div>
           </nav>
         </div>
-        <div class="col-4">
+        <div class="col-2">
           @include('partials.formulario_cliente')
           <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#nuevoCliente">Nuevos</button>
         </div>
+        <div class="col-2">
+            <a href="/clientes/tickets"><button type="button" class="btn btn-outline-primary">Ver tickets</button></a>
+          </div>
       </div>
 <table class="table table-striped table-bordered">
     <thead>
@@ -62,7 +65,12 @@ body {
             <td scope="col">{{$c->Telefono}}</th>
             <td scope="col">{{$c->Correo}}</th>
             <td scope="col">{{$c->Direccion}}</th>
-                <td scope="col"><a href="{{route('f_orden_compra')}}"><button class="btn btn-outline-primary">Nueva Orden</button></th></a>
+                <td scope="col">
+                    <form method="POST" action="/clientes/{{$c->id_cliente}}/ticket">
+                        @csrf
+                    <button type="submit"  class="btn btn-outline-primary">Nueva Orden</button>
+                    </form>
+                </td>
 
         </tr>
         @include('partials.modalclientes')

@@ -16,8 +16,7 @@ return new class extends Migration
             $table->integer('id_ticket')->unsigned();
             $table->integer('id_producto')->unsigned();
             $table->string('Cantidad');
-            $table->string('Subtotal');
-            $table->string('Estatus');
+            $table->string('Estatus')->default('1');
             $table->timestamps();
 
             $table->foreign('id_ticket')->references('id_ticketventa')->on('tb_ticketventa');

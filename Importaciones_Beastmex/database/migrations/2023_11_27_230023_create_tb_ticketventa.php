@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id_ticketventa');
             $table->integer('id_empleado')->unsigned();
             $table->integer('id_cliente')->unsigned();
-            $table->string('Estatus');
+            $table->string('Estatus')->default('1');
             $table->timestamps();
 
             $table->foreign('id_empleado')->references('id_empleado')->on('tb_empleados');

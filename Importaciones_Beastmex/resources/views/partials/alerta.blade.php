@@ -7,3 +7,23 @@
     )
 </script>
 @endif
+
+@if(session()->has('success'))
+<script>
+    Swal.fire(
+        'Todo correcto',
+        '{{session('success')}}',
+        'success'
+    )
+</script>
+@endif
+
+@if(session()->has('Error'))
+<script>
+    Swal.fire(
+        'Error',
+        'Usuario y/o contraseña incorrectos',
+        'error'
+    )
+</script>
+@endif

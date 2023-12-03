@@ -23,9 +23,9 @@ class v_producto extends FormRequest
     {
         return [
             '_NombreProducto'=>'required|max:250',
-            '_NumeroSerie'=>'required|numeric|max_digits:20',
+            '_NumeroSerie'=>'required',
             '_Marca'=>'required|max:250',
-            '_Costo'=>'required|numeric|decimal:2',
+            '_Costo'=>'required|numeric|decimal:0,2',
             '_Stock'=>'required|numeric|max_digits:7',
             '_NombreProveedor'=>'required|max:250',
             '_Image'=>'required',

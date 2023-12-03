@@ -14,10 +14,18 @@
                   Departamentos
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="{{route('n_clientes')}}">Ventas</a></li>
-                  <li><a class="dropdown-item" href="{{route('n_productos')}}">Almacén</a></li>
-                  <li><a class="dropdown-item" href="{{route('n_proveedores')}}">Compras</a></li>
-                  <li><a class="dropdown-item" href="{{route('n_empleados')}}">Gerencia</a></li>
+                  @if(session()->has('id_rol') && in_array(session('id_rol'), [1, 2, 3]))
+                  <li><a class="dropdown-item" href="/proveedores">Compras</a></li>
+                  @endif
+                  @if(session()->has('id_rol') && in_array(session('id_rol'), [1, 2, 5]))
+                  <li><a class="dropdown-item" href="/productos">Almacén</a></li>
+                  @endif
+                  @if(session()->has('id_rol') && in_array(session('id_rol'), [1, 2, 4]))
+                  <li><a class="dropdown-item" href="/clientes">Ventas</a></li>
+                  @endif
+                  @if(session()->has('id_rol') && in_array(session('id_rol'), [1, 2]))
+                  <li><a class="dropdown-item" href="/empleados">Gerencia</a></li>
+                  @endif
                 </ul>
               </li>
               <li class="nav-item dropdown">
@@ -25,14 +33,20 @@
                   Reportes
                 </a>
                 <ul class="dropdown-menu">
+                  @if(session()->has('id_rol') && in_array(session('id_rol'), [1, 2, 4]))
                   <li><a class="dropdown-item" href="{{route('n_ventas')}}">Ventas</a></li>
+                  @endif
+                  @if(session()->has('id_rol') && in_array(session('id_rol'), [1, 2, 3]))
                   <li><a class="dropdown-item" href="{{route('n_compras')}}">Compras</a></li>
+                  @endif
+                  @if(session()->has('id_rol') && in_array(session('id_rol'), [1, 2]))
                   <li><a class="dropdown-item" href="{{route('n_general')}}">General</a></li>
+                  @endif
                 </ul>
               </li>
               <li><hr class="dropdown-divider"></li>
               <li class="nav-item">
-                <a class="nav-link" href="/login">Cerrar Sesion</a>
+                <a class="nav-link" href="/cerrar_sesion">Cerrar Sesion</a>
               </li>
           </ul>
         </div>
