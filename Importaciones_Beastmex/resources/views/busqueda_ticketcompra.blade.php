@@ -15,7 +15,7 @@
                 <div class="container">
                     <div class="search-form">
                         <form class="d-flex" role="search" method="get" action="/proveedores/tickets/busqueda">
-                            <input class="form-control me-2 col-md-3" type="text" name="_nombre" placeholder="Buscar Empleado" aria-label="Search">
+                            <input class="form-control me-2 col-md-3" type="text" name="_nombre" placeholder="Buscar Proveedor/Empleado" aria-label="Search">
                             <div class="input-group col-md-3">
                                 <input class="form-control" type="month" name="_fecha" placeholder="Fecha" aria-label="Fecha">
                             </div>

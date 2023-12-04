@@ -133,6 +133,7 @@ class BController extends Controller
         'tb_personas.Estatus')
         ->where('tb_personas.Estatus', 1)
         ->where('tb_productos.Estatus', 1)
+        ->orderBy('tb_productos.Nombre')
         ->get();
         return view('busqueda_producto',compact('proveedores','productos'));
     }
@@ -898,7 +899,7 @@ class BController extends Controller
 
     public function generar_ticket_compra(Request $req, $id){
         $idticket=DB::table('tb_ticketcompra')->insertGetId([
-            "id_empleado"=>1,
+            "id_empleado"=>session('id_empleado'),
             "id_proveedor"=>$id,
             "created_at"=>Carbon::now(),
             "updated_at"=>Carbon::now(),
@@ -908,7 +909,7 @@ class BController extends Controller
 
     public function generar_ticket_venta(Request $req, $id){
         $idticket=DB::table('tb_ticketventa')->insertGetId([
-            "id_empleado"=>1,
+            "id_empleado"=>session('id_empleado'),
             "id_cliente"=>$id,
             "created_at"=>Carbon::now(),
             "updated_at"=>Carbon::now(),
@@ -964,7 +965,8 @@ class BController extends Controller
         $user = DB::table('tb_empleados')
         ->join('tb_personas', 'tb_empleados.id_persona', '=', 'tb_personas.id_persona')
         ->select('tb_empleados.id_rol',
-        'tb_empleados.Contraseña')
+        'tb_empleados.Contraseña',
+        'tb_empleados.id_empleado')
         ->where('tb_personas.Estatus', 1)
         ->where('tb_personas.Correo',$email)
         ->first();
@@ -972,6 +974,7 @@ class BController extends Controller
             if ($user->Contraseña==$password) {
                 // Password verification successful, set the session variable
                 session(['id_rol' => $user->id_rol]);
+                session(['id_empleado' => $user->id_empleado]);
 
                 return redirect('/');
             } else {
@@ -1181,6 +1184,7 @@ class BController extends Controller
 
         public function cerrar_sesion(){
             Session::forget('id_rol');
+            Session::forget('id_empleado');
             Session::flush();
             return redirect('/login')->with('success', 'Haz cerrado sesión correctamente.');
         }

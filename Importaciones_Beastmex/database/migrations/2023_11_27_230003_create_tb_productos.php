@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Carbon\Carbon;
 return new class extends Migration
 {
     /**
@@ -25,6 +25,22 @@ return new class extends Migration
 
             $table->foreign('id_proveedor')->references('id_proveedor')->on('tb_proveedores');
         });
+        for ($i = 1; $i <= 3; $i++) {
+            for ($j = 1; $j <= 3; $j++) {
+                DB::table('tb_productos')->insert([
+                    'Nombre' => "Product{$j}_Provider{$i}",
+                    'No_Serie' => "ABC{$i}{$j}",
+                    'Marca' => "Brand{$i}{$j}",
+                    'Costo_compra' => rand(50, 200),
+                    'Stock' => rand(5, 50),
+                    'Foto' => null,
+                    'Estatus' => '1',
+                    'id_proveedor' => $i,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
+            }
+        }
     }
 
     /**

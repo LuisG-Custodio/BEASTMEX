@@ -20,9 +20,9 @@ return new class extends Migration
         DB::table('tb_roles')->insert([
             ['Nombre' => 'Administrador', 'created_at'=>Carbon::now(),'updated_at'=>Carbon::now(),],
             ['Nombre' => 'Gerente', 'created_at'=>Carbon::now(),'updated_at'=>Carbon::now(),],
-            ['Nombre' => 'Compras', 'created_at'=>Carbon::now(),'updated_at'=>Carbon::now(),],
-            ['Nombre' => 'Ventas', 'created_at'=>Carbon::now(),'updated_at'=>Carbon::now(),],
-            ['Nombre' => 'Almacen', 'created_at'=>Carbon::now(),'updated_at'=>Carbon::now(),],
+            ['Nombre' => 'Coordinador Compras', 'created_at'=>Carbon::now(),'updated_at'=>Carbon::now(),],
+            ['Nombre' => 'Coordinador Ventas', 'created_at'=>Carbon::now(),'updated_at'=>Carbon::now(),],
+            ['Nombre' => 'Auxiliar de Almacen', 'created_at'=>Carbon::now(),'updated_at'=>Carbon::now(),],
         ]);
     }
 
