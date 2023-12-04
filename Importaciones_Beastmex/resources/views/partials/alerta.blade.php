@@ -27,3 +27,13 @@
     )
 </script>
 @endif
+
+@if(session()->has('stock'))
+<script>
+    Swal.fire(
+        'Error',
+        '{{session('stock')}}',
+        'error'
+    )
+</script>
+@endif

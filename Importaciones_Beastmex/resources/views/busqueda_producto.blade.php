@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('titulo','Almacen')
+@section('titulo','Productos')
 @section('contenido')
 
 <style>
@@ -16,8 +16,8 @@ body {
               <nav class="navbar">
                   <div class="container">
                       <div class="search-form">
-                          <form class="d-flex" role="search">
-                              <input class="form-control me-2 col-md-3" type="search" placeholder="Buscar Empleado" aria-label="Search">
+                        <form class="d-flex" role="search" action="/productos/busqueda" method="GET">
+                            <input class="form-control me-2 col-md-3" type="search" name="_nombre" placeholder="Nombre/Serie/Marca" aria-label="Search">
                               <button class="btn btn-outline-success" type="submit">Buscar</button>
                           </form>
                       </div>
@@ -25,14 +25,20 @@ body {
               </nav>
             </div>
             <div class="col-4">
+            @if(session()->has('id_rol') && in_array(session('id_rol'), [1, 2, 5]))   
               @include('partials.formulario_producto')
-              <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#nuevoProducto">Nuevo</button>
+              <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#nuevoProducto">Nuevo Producto</button>
+            @endif
+            <button class="btn btn-outline-success mt-3 mb-3 ms-3" id="download-button">Descargar PDF</button>
             </div>
           </div>
+          <div id="invoice">
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
+                @if(session()->has('id_rol') && in_array(session('id_rol'), [1, 2, 5]))   
                 <th scope="col"></th>
+                @endif
                 <th scope="col">Producto</th>
                 <th scope="col">No. de Serie</th>
                 <th scope="col">Marca</th>
@@ -46,8 +52,9 @@ body {
         </thead>
         <tbody>
             @foreach($productos as $i)
-            <tr>
-                <td scope="col">
+            <tr class="@if($i->Stock <= 2) table-danger table-bordered border-danger @endif">
+                @if(session()->has('id_rol') && in_array(session('id_rol'), [1, 2, 5]))   
+                <td scope="col" >
                     <table>
                         <tr>
                             <td>
@@ -60,6 +67,7 @@ body {
                         </tr>
                     </table>
                 </td>
+                @endif
                 <td scope="col">{{$i->Nombre}}</td>
                 <td scope="col">{{$i->No_Serie}}</td>
                 <td scope="col">{{$i->Marca}}</td>
@@ -73,8 +81,20 @@ body {
             @endforeach
         </tbody>
     </table>
+          </div>
 </div>
 </body>
+<script>
+    const button = document.getElementById('download-button');
 
+    function generatePDF() {
+        // Choose the element that your content will be rendered to.
+        const element = document.getElementById('invoice');
+        // Choose the element and save the PDF for your user.
+        html2pdf().from(element).save();
+    }
+
+    button.addEventListener('click', generatePDF);
+</script>
 
 @endsection

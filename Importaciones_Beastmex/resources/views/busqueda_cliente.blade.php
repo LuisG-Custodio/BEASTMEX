@@ -15,8 +15,8 @@ body {
           <nav class="navbar">
               <div class="container">
                   <div class="search-form">
-                      <form class="d-flex" role="search">
-                          <input class="form-control me-2 col-md-3" type="search" placeholder="Buscar Empleado" aria-label="Search">
+                    <form class="d-flex" role="search" action="/clientes/busqueda" method="GET">
+                        <input class="form-control me-2 col-md-3" type="search" name="_nombre" placeholder="Buscar Cliente" aria-label="Search">
                           <button class="btn btn-outline-success" type="submit">Buscar</button>
                       </form>
                   </div>
@@ -25,7 +25,7 @@ body {
         </div>
         <div class="col-2">
           @include('partials.formulario_cliente')
-          <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#nuevoCliente">Nuevos</button>
+          <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#nuevoCliente">Nuevo Cliente</button>
         </div>
         <div class="col-2">
             <a href="/clientes/tickets"><button type="button" class="btn btn-outline-primary">Ver tickets</button></a>

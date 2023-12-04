@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Guardar Cliente</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Cliente</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -12,7 +12,7 @@
 
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label for="inputNombreEmpresa" class="form-label">Nombre del Proveedor</label>
+                            <label for="inputNombreEmpresa" class="form-label">Nombre del Cliente</label>
                             <input type="text" class="form-control" id="inputNombreEmpresa" name="_NombreEmpresa" value="{{ old('_NombreEmpresa') }}">
                             @if($errors->first('_NombreEmpresa'))
                             <div class="alert alert-danger" role="alert">

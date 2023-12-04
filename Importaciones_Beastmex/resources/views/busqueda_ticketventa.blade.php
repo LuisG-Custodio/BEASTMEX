@@ -15,10 +15,13 @@ body {
           <nav class="navbar">
               <div class="container">
                   <div class="search-form">
-                      <form class="d-flex" role="search">
-                          <input class="form-control me-2 col-md-3" type="search" placeholder="Buscar Empleado" aria-label="Search">
-                          <button class="btn btn-outline-success" type="submit">Buscar</button>
-                      </form>
+                    <form class="d-flex" role="search" method="get" action="/clientes/tickets/busqueda">
+                        <input class="form-control me-2 col-md-3" type="text" name="_nombre" placeholder="Buscar Empleado" aria-label="Search">
+                        <div class="input-group col-md-3">
+                            <input class="form-control" type="month" name="_fecha" placeholder="Fecha" aria-label="Fecha">
+                        </div>
+                        <button class="btn btn-outline-success" type="submit">Buscar</button>
+                    </form>
                   </div>
               </div>
           </nav>
@@ -47,6 +50,7 @@ body {
     </tbody>
     
 </table>
+<a href="/clientes"><button type="button" class="btn btn-outline-danger mt-3">Salir</button></a>
 </div>
 </body>
 
