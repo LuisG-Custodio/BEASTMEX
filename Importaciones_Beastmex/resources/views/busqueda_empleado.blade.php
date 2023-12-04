@@ -17,8 +17,8 @@
                   <nav class="navbar">
                       <div class="container">
                           <div class="search-form">
-                              <form class="d-flex" role="search">
-                                  <input class="form-control me-2 col-md-3" type="search" placeholder="Buscar Empleado" aria-label="Search">
+                            <form class="d-flex" role="search" action="/empleados/busqueda" method="GET">
+                                <input class="form-control me-2 col-md-3" type="search" name="_nombre" placeholder="Buscar Empleado" aria-label="Search">
                                   <button class="btn btn-outline-success" type="submit">Buscar</button>
                               </form>
                           </div>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-4">
                   @include('partials.formulario_empleado')
-                  <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#nuevoEmpleado">Nuevos</button>
+                  <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#nuevoEmpleado">Nuevo Empleado</button>
                 </div>
               </div>
         <table class="table table-striped table-bordered">
@@ -38,7 +38,7 @@
                     <th scope="col">RFC</th>
                     <th scope="col">Teléfono</th>
                     <th scope="col">Correo</th>
-                    <th scope="col">Puesto</th>
+                    <th scope="col">Departamento</th>
                     <th scope="col">Contraseña</th>
                     <th scope="col">Dirección</th>
                 </tr>

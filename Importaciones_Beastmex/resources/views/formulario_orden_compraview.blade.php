@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('titulo','Nueva Compra')
+@section('titulo','Historial Compra')
 @section('contenido')
 
 <style>
@@ -24,6 +24,20 @@
                 <td>{{$fechaticket[0]->created_at}}</td>
             </tr>
         </tbody>
+        <thead>
+            <tr>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Dirección</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{$proveedor[0]->Telefono}} </td>
+                <td>{{$proveedor[0]->Correo}}</td>
+                <td>{{$proveedor[0]->Direccion}}</td>
+            </tr>
+        </tbody>
     </table>
     <table class="table mt-3">
         <thead>
@@ -38,9 +52,9 @@
             @foreach($poductos_ordenados as $po)
             <tr>
                 <td>{{$po->Nombre}}</td>
-                <td>{{$po->Costo_compra}}</td>
+                <td>{{number_format($po->Costo_compra, 2) }}</td>
                 <td>{{$po->Cantidad}}</td>
-                <td>{{$po->Costo_compra*$po->Cantidad}}</td>
+                <td>{{number_format($po->Costo_compra *$po->Cantidad, 2) }}</td>
             </tr>
             @include('partials.modalordencompras')
             @endforeach
@@ -48,7 +62,7 @@
                 <td></td>
                 <td></td>
                 <td>Total:</td>
-                <td>{{$total}}</td>
+                <td>{{number_format($total,2)}}</td>
             </tr>
         </tbody>
     </table>
@@ -72,6 +86,20 @@
                                 <td>{{$fechaticket[0]->created_at}}</td>
                             </tr>
                         </tbody>
+                        <thead>
+                            <tr>
+                                <th>Telefono</th>
+                                <th>Correo</th>
+                                <th>Dirección</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{$proveedor[0]->Telefono}} </td>
+                                <td>{{$proveedor[0]->Correo}}</td>
+                                <td>{{$proveedor[0]->Direccion}}</td>
+                            </tr>
+                        </tbody>
                     </table>
                     <table class="table mt-3">
                         <thead>
@@ -88,9 +116,9 @@
                             <tr>   
                                 <td></td>
                                 <td>{{$po->Nombre}}</td>
-                                <td>{{$po->Costo_compra}}</td>
+                                <td>{{number_format($po->Costo_compra, 2) }}</td>
                                 <td>{{$po->Cantidad}}</td>
-                                <td>{{$po->Costo_compra*$po->Cantidad}}</td>
+                                <td>{{number_format($po->Costo_compra *$po->Cantidad, 2) }}</td>
                             </tr>
                             @include('partials.modalordencompras')
                             @endforeach
@@ -99,7 +127,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>Total:</td>
-                                <td>{{$total}}</td>
+                                <td>{{number_format($total,2)}}</td>
                             </tr>
                         </tbody>
                     </table>

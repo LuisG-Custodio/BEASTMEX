@@ -64,11 +64,26 @@
                 <td>{{$fechaticket[0]->created_at}}</td>
             </tr>
         </tbody>
+        <thead>
+            <tr>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Dirección</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{$cliente[0]->Telefono}} </td>
+                <td>{{$cliente[0]->Correo}}</td>
+                <td>{{$cliente[0]->Direccion}}</td>
+            </tr>
+        </tbody>
     </table>
     <table class="table mt-3">
         <thead>
             <tr>
                 <th>Producto</th>
+                <th>Marca</th>
                 <th>Precio</th>
                 <th>Cantidad</th>
                 <th>Subtotal</th>
@@ -79,6 +94,7 @@
             @foreach($poductos_ordenados as $po)
             <tr>
                 <td>{{$po->Nombre}}</td>
+                <td>{{$po->Marca}}</td>
                 <td>{{number_format($po->Costo_compra * 1.55, 2) }}</td>
                 <td>{{$po->Cantidad}}</td>
                 <td>{{number_format($po->Costo_compra * 1.55*$po->Cantidad, 2) }}</td>
@@ -91,13 +107,14 @@
             <tr>
                 <td></td>
                 <td></td>
+                <td></td>
                 <td>Total:</td>
                 <td>{{number_format($total,2)}}</td>
                 <td></td>
             </tr>
         </tbody>
     </table>
-    <button id="download-button">Descargar PDF</button>
+    <button class="btn btn-outline-success mt-3" id="download-button">Descargar PDF</button>
         <div hidden>
             <div id="invoice">
                 <div class="container">
@@ -116,12 +133,27 @@
                                 <td>{{$fechaticket[0]->created_at}}</td>
                             </tr>
                         </tbody>
+                        <thead>
+                            <tr>
+                                <th>Telefono</th>
+                                <th>Correo</th>
+                                <th>Dirección</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{$cliente[0]->Telefono}} </td>
+                                <td>{{$cliente[0]->Correo}}</td>
+                                <td>{{$cliente[0]->Direccion}}</td>
+                            </tr>
+                        </tbody>
                     </table>
                     <table class="table mt-3">
                         <thead>
                             <tr>
                                 <th></th>
                                 <th>Producto</th>
+                                <th>Marca</th>
                                 <th>Precio</th>
                                 <th>Cantidad</th>
                                 <th>Subtotal</th>
@@ -132,12 +164,14 @@
                             <tr>   
                                 <td></td>
                                 <td>{{$po->Nombre}}</td>
+                                <td>{{$po->Marca}}</td>
                                 <td>{{number_format($po->Costo_compra * 1.55, 2) }}</td>
                                 <td>{{$po->Cantidad}}</td>
                                 <td>{{number_format($po->Costo_compra * 1.55*$po->Cantidad, 2) }}</td>
                             </tr>
                             @endforeach
                             <tr>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>

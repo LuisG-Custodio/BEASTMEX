@@ -64,6 +64,20 @@
                 <td>{{$fechaticket[0]->created_at}}</td>
             </tr>
         </tbody>
+        <thead>
+            <tr>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Dirección</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{$proveedor[0]->Telefono}} </td>
+                <td>{{$proveedor[0]->Correo}}</td>
+                <td>{{$proveedor[0]->Direccion}}</td>
+            </tr>
+        </tbody>
     </table>
     <table class="table mt-3">
         <thead>
@@ -79,9 +93,9 @@
             @foreach($poductos_ordenados as $po)
             <tr>
                 <td>{{$po->Nombre}}</td>
-                <td>{{$po->Costo_compra}}</td>
+                <td>{{number_format($po->Costo_compra, 2) }}</td>
                 <td>{{$po->Cantidad}}</td>
-                <td>{{$po->Costo_compra*$po->Cantidad}}</td>
+                <td>{{number_format($po->Costo_compra*$po->Cantidad, 2) }}</td>
                 <td>
                     <button class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#eliminarOrden{{$po->id_ordencompra}}"><i class="bi bi-trash"></i></button>
                 </td>
@@ -92,12 +106,12 @@
                 <td></td>
                 <td></td>
                 <td>Total:</td>
-                <td>{{$total}}</td>
+                <td>{{number_format($total,2)}}</td>
                 <td></td>
             </tr>
         </tbody>
     </table>
-    <button id="download-button">Descargar PDF</button>
+    <button class="btn btn-outline-success mt-3" id="download-button">Descargar PDF</button>
         <div hidden>
             <div id="invoice">
                 <div class="container">
@@ -116,6 +130,20 @@
                                 <td>{{$fechaticket[0]->created_at}}</td>
                             </tr>
                         </tbody>
+                        <thead>
+                            <tr>
+                                <th>Telefono</th>
+                                <th>Correo</th>
+                                <th>Dirección</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{$proveedor[0]->Telefono}} </td>
+                                <td>{{$proveedor[0]->Correo}}</td>
+                                <td>{{$proveedor[0]->Direccion}}</td>
+                            </tr>
+                        </tbody>
                     </table>
                     <table class="table mt-3">
                         <thead>
@@ -132,9 +160,9 @@
                             <tr>   
                                 <td></td>
                                 <td>{{$po->Nombre}}</td>
-                                <td>{{$po->Costo_compra}}</td>
+                                <td>{{number_format($po->Costo_compra, 2) }}</td>
                                 <td>{{$po->Cantidad}}</td>
-                                <td>{{$po->Costo_compra*$po->Cantidad}}</td>
+                                <td>{{number_format($po->Costo_compra *$po->Cantidad, 2) }}</td>
                             </tr>
                             @include('partials.modalordencompras')
                             @endforeach
@@ -143,7 +171,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>Total:</td>
-                                <td>{{$total}}</td>
+                                <td>{{number_format($total,2)}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -156,13 +184,37 @@
     const button = document.getElementById('download-button');
 
     function generatePDF() {
-        // Choose the element that your content will be rendered to.
-        const element = document.getElementById('invoice');
-        // Choose the element and save the PDF for your user.
-        html2pdf().from(element).save();
-    }
+    // Choose the element that your content will be rendered to.
+    const element = document.getElementById('invoice');
+    
+    // Specify the options for the PDF generation, including the file name.
+    const pdfOptions = {
+        margin: 10,
+        filename: 'orden_{{$id}}.pdf', // Concatenate the id variable in the file name
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    };
+
+    // Generate the PDF using html2pdf with the specified options.
+    const pdfPromise = html2pdf().from(element).set(pdfOptions).outputPdf();
+
+    // Save the PDF to the Laravel storage folder after it's generated.
+    pdfPromise.then((pdfBlob) => {
+        const formData = new FormData();
+        formData.append('pdf', pdfBlob);
+
+        // Use Fetch API to send the PDF blob to the server for storage.
+        fetch('/save-pdf', {
+            method: 'POST',
+            body: formData,
+        });
+    });
+}
+
 
     button.addEventListener('click', generatePDF);
 </script>
+
 
 @endsection

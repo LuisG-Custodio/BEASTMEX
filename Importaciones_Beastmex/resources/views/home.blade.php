@@ -15,7 +15,7 @@
 
 <body>  
     <div class="container">
-        <div class="row mt-5">
+        {{--<div class="row mt-5">
             <div class="col-md-3">
                 <a href="/clientes" class="btn btn-primary btn-lg btn-block">VENTAS</a>
             </div>
@@ -28,7 +28,7 @@
             <div class="col-md-3">
                 <a href="/empleados" class="btn btn-warning btn-lg btn-block">GERENCIA</a>
             </div>
-        </div>
+        </div>--}}
         
         <div class="row mt-5">
             <div class="col-md-6">

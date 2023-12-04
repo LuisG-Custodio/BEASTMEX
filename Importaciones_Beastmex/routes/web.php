@@ -19,17 +19,20 @@ Route::get('/proveedores/tickets',[BController::class,'m_b_ticketcompra'])->name
 Route::get('/clientes/tickets',[BController::class,'m_b_ticketventa'])->name('n_ticketventa');
 
 #busquedas
-Route::get('/empleados/busqueda',[BController::class,'m_b_empleados'])->name('n_empleados');
-Route::get('/proveedores/busqueda',[BController::class,'m_b_proveedor'])->name('n_proveedores');
-Route::get('/clientes/busqueda',[BController::class,'m_b_cliente'])->name('n_clientes');
-Route::get('/productos/busqueda',[BController::class,'m_b_producto'])->name('n_productos');
-Route::get('/proveedores/tickets/busqueda',[BController::class,'m_b_ticketcompra'])->name('n_ticketcompra');
-Route::get('/clientes/tickets/busqueda',[BController::class,'m_b_ticketventa'])->name('n_ticketventa');
+Route::get('/empleados/busqueda',[BController::class,'m_b_empleados_search'])->name('n_empleados');
+Route::get('/proveedores/busqueda',[BController::class,'m_b_proveedor_search'])->name('n_proveedores');
+Route::get('/clientes/busqueda',[BController::class,'m_b_cliente_search'])->name('n_clientes');
+Route::get('/productos/busqueda',[BController::class,'m_b_producto_search'])->name('n_productos');
+Route::get('/proveedores/tickets/busqueda',[BController::class,'m_b_ticketcompra_search'])->name('n_ticketcompra');
+Route::get('/clientes/tickets/busqueda',[BController::class,'m_b_ticketventa_search'])->name('n_ticketventa');
+Route::get('/compras/busqueda',[BController::class,'m_r_compras_search'])->name('n_compras');
+Route::get('/ventas/busqueda',[BController::class,'m_r_ventas_search'])->name('n_ventas');
+Route::get('/reporte_general/busqueda',[BController::class,'m_r_general_search'])->name('n_general');
 
 #reportes
 Route::get('/compras',[BController::class,'m_r_compras'])->name('n_compras');
 Route::get('/ventas',[BController::class,'m_r_ventas'])->name('n_ventas');
-Route::get('/repore_general',[BController::class,'m_r_general'])->name('n_general');
+Route::get('/reporte_general',[BController::class,'m_r_general'])->name('n_general');
 
 #editar valores de tickets
 Route::get('/proveedores/ticket/{id}',[BController::class,'m_f_orden_compra'])->name('f_orden_compra');

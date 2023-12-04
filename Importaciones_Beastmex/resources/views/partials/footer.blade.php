@@ -1,6 +1,6 @@
 <section class="">
     <!-- Footer -->
-    <footer class="text-center text-white" style="background-color: #0a3775;">
+    <footer class="text-center text-white" style="background-color: #03363d;">
       <!-- Grid container -->
       <div class="container p-4 pb-0">
         <!-- Section: CTA -->
