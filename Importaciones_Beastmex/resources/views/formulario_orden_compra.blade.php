@@ -184,34 +184,21 @@
     const button = document.getElementById('download-button');
 
     function generatePDF() {
-    // Choose the element that your content will be rendered to.
-    const element = document.getElementById('invoice');
-    
-    // Specify the options for the PDF generation, including the file name.
-    const pdfOptions = {
-        margin: 10,
-        filename: 'orden_{{$id}}.pdf', // Concatenate the id variable in the file name
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-    };
+        // Choose the element that your content will be rendered to.
+        const element = document.getElementById('invoice');
+        
+        // Specify the options for the PDF generation, including the file name.
+        const pdfOptions = {
+            margin: 10,
+            filename: 'orden_{{$id}}.pdf', // Concatenate the id variable in the file name
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        };
 
-    // Generate the PDF using html2pdf with the specified options.
-    const pdfPromise = html2pdf().from(element).set(pdfOptions).outputPdf();
-
-    // Save the PDF to the Laravel storage folder after it's generated.
-    pdfPromise.then((pdfBlob) => {
-        const formData = new FormData();
-        formData.append('pdf', pdfBlob);
-
-        // Use Fetch API to send the PDF blob to the server for storage.
-        fetch('/save-pdf', {
-            method: 'POST',
-            body: formData,
-        });
-    });
-}
-
+        // Generate and save the PDF using html2pdf with the specified options.
+        html2pdf().from(element).set(pdfOptions).save();
+    }
 
     button.addEventListener('click', generatePDF);
 </script>
