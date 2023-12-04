@@ -27,7 +27,7 @@
                 @endif
             </div>
             <div class="col-md-6">
-                <label for="inputCantidad" class="form-label">Cantidad a Comprar</label>
+                <label for="inputCantidad" class="form-label">Cantidad a Vender</label>
                 <input type="number" class="form-control" id="inputCantidad" name="_Cantidad" value="{{ old('_Cantidad') }}">
                 @if($errors->first('_Cantidad'))
                     <div class="alert alert-danger" role="alert">
@@ -45,7 +45,7 @@
                 <button type="submit" class="btn btn-outline-success mt-3">Registrar</button>
             </div>
             <div class="col">
-                <a href="/proveedores"><button type="button" class="btn btn-outline-danger mt-3">Salir</button></a>
+                <a href="/clientes"><button type="button" class="btn btn-outline-danger mt-3">Salir</button></a>
             </div>
         </div>
     </form>

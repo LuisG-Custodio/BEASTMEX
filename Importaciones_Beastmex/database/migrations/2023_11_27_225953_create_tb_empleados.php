@@ -25,12 +25,44 @@ return new class extends Migration
         });
         DB::table('tb_empleados')->insert([
             [
-                'RFC'=>'1234567890123',
-                'id_persona'=>1,
-                'id_rol'=>1,
-                'Contraseña'=>'123456789',
-                'created_at'=>Carbon::now(),
-                'updated_at'=>Carbon::now(),
+                'RFC' => '1234567890123',
+                'id_persona' => 1,
+                'id_rol' => 1,
+                'Contraseña' => '123456789',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'RFC' => '9876543210987',
+                'id_persona' => 2,
+                'id_rol' => 2,
+                'Contraseña' => '987654321',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'RFC' => '4567890123456',
+                'id_persona' => 3,
+                'id_rol' => 3,
+                'Contraseña' => '456789012',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'RFC' => '7890123456789',
+                'id_persona' => 4,
+                'id_rol' => 4,
+                'Contraseña' => '789012345',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
+            [
+                'RFC' => '7890123456789',
+                'id_persona' => 5,
+                'id_rol' => 5,
+                'Contraseña' => '789012345',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ],
         ]);
     }
